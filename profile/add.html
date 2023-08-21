@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <title>Program Details</title>
+    <style>
+      body {
+        font-family: Calibri, sans-serif;
+        background-image: url("/public/bg.png");
+      }
+      .container {
+        max-width: 400px;
+        margin: 25px auto;
+        padding: 25px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        text-align: center;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 400px;
+      }
+      textarea {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button {
+        background-color: #facc15;
+        width: 100%;
+        color: rgb(1, 6, 0);
+        padding: 15px;
+        margin: 10px 0px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+      input[type="text"],
+      input[type="date"],
+      input[type="time"],
+      textarea[name="description"],
+      select[option] {
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px 20px;
+        display: inline-block;
+        border: 0.5px solid #facc15;
+        box-sizing: border-box;
+      }
+      button:hover {
+        opacity: 0.7;
+      }
+      select {
+        width: 100px;
+        height: 50px;
+        font-size: 15px;
+        border: 0.5px solid #facc15;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="add.php" method="POST">
+        <h2>PROGRAM DETAILS</h2>
+        <label>Program Name : <span style="color: red">*</span></label>
+        <input type="text" name="programName" required />
+        <label>Organizer/Organizing Body : </label>
+        <input type="text" name="organizer" required />
+        <label>Date : <span style="color: red">*</span></label>
+        <input type="date" name="date" required />
+        <label>Time : <span style="color: red">*</span></label>
+        <input type="time" name="time" required />
+        <label>Co-ordinator Name : <span style="color: red">*</span></label>
+        <input type="text" name="coordname" required />
+        <label>Co-ordinator Number : <span style="color: red">*</span></label>
+        <input type="text" name="coordphone" required />
+        <label>Registration Link : <span style="color: red">*</span></label>
+        <input type="text" name="reglink" required />
+        <label>Offline/Online : <span style="color: red">*</span></label>
+        <br />
+        <p>
+          <select name="mode">
+            <option name="mode">Offline</option>
+            <option name="mode">Online</option>
+          </select>
+        </p>
+        <label>Location : <span style="color: red">*</span></label>
+        <input type="text" name="location" required />
+        <label>Type : <span style="color: red">*</span></label>
+        <br />
+        <p>
+          <select name="type">
+            <option name="type">Quiz</option>
+            <option name="type">Hackathon</option>
+            <option name="type">Competition</option>
+            <option name="type">Workshop</option>
+            <option name="type">Others</option>
+          </select>
+        </p>
+        <label>Description : <span style="color: red">*</span></label>
+        <textarea name="description" rows="4" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

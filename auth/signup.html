@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <title>Signup_Page</title>
+    <style>
+      body {
+        font-family: Calibri, sans-serif;
+        background-image: url("/public/bg.png");
+      }
+      button {
+        background-color: #facc15;
+        width: 100%;
+        color: rgb(1, 6, 0);
+        padding: 15px;
+        margin: 10px 0px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+      }
+      .container {
+        max-width: 516px;
+        margin: 25px auto;
+        margin-bottom: 25px;
+        padding: 45px;
+        background-color: rgba(255, 255, 255, 0.54);
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 100px;
+        width: 100%;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="file"] {
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px 20px;
+        display: inline-block;
+        border: 0.5px solid #facc15;
+        box-sizing: border-box;
+      }
+      button:hover {
+        opacity: 0.7;
+      }
+      .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        margin: 10px 5px;
+      }
+      h2 {
+        text-align: center;
+      }
+      textarea {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="form" enctype="multipart/form-data" action="signup.php" method="POST" onsubmit="return validateForm()">      <div class="container">
+        <h2>CREATE ACCOUNT</h2>
+        <label>Name : <span style="color: red">*</span> </label>
+        <input type="text" placeholder="Enter your Name" name="name" required />
+        <label>Username : <span style="color: red">*</span> </label>
+        <input type="text" placeholder="Enter a Username" name="username" required />
+        <label>Email : <span style="color: red">*</span> </label>
+        <input type="email" placeholder="Enter your Email" name="email" required />
+        <label>Phone Number : <span style="color: red">*</span> </label>
+        <input
+          type="tel"
+          placeholder="Enter your Phone number"
+          pattern="[1-9]{1}[0-9]{9}"
+          name="phone"
+          required
+        />
+        <label>Password : <span style="color: red">*</span> </label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Enter Password"
+          required
+        />
+        <label>Confirm Password : <span style="color: red">*</span> </label>
+        <input
+          type="password"
+          name="confirm_password"
+          id="confirm_password"
+          placeholder="Enter Password"
+          required
+        />
+        <span id="passwordError" style="color: red;"></span>
+        <br>
+        <label>Upload image : </label>
+        <input type="file" name="profilepicture" required/>
+        <button type="submit" name="submit" id="submitBtn">Signup</button>
+        Already have an account?<a href="login.html"> Login</a>
+      </div>
+    </form>
+
+    <script>
+      function validateForm() {
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirm_password").value;
+        const passwordError = document.getElementById("passwordError");
+    
+        if (password !== confirmPassword) {
+            passwordError.textContent = "Passwords do not match";
+            return false; // Prevent form submission
+        } else {
+            passwordError.textContent = ""; // Clear the error message
+            return true; // Allow form submission
+        }
+    }
+    
+    </script>
+
+  </body>
+</html>
